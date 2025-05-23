@@ -70,7 +70,7 @@ ipcMain.handle('upload-cover', async (_, songName) => {
 
     const coverPath = filePaths[0];
     const ext = path.extname(coverPath);
-    const destPath = path.join(__dirname, 'covers', `${path.parse(songName).name}${ext}`);
+    const destPath = path.join(__dirname, 'assets/covers', `${path.parse(songName).name}${ext}`);
 
     fs.copyFileSync(coverPath, destPath);
     return destPath;

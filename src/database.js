@@ -1,5 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('mizu.db');
+const path = require('path');
+const db = new sqlite3.Database(path.join(__dirname, '../mizu.db'));
 
 // Criar tabelas
 db.serialize(() => {
@@ -80,4 +81,3 @@ module.exports = {
     listarPlaylists, 
     deletarPlaylist
 };
- 

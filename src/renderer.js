@@ -172,13 +172,13 @@ function playSong(index) {
     if (songs.length === 0) return; 
 
     currentSongIndex = index;
-    const songPath = `file://${path.join(__dirname, 'songs', songs[index].name).replace(/\\/g, '/')}`;
+    const songPath = `file://${path.join(__dirname, 'src/assets/songs', songs[index].name).replace(/\\/g, '/')}`;
 
     audioPlayer.src = songPath; 
     audioPlayer.play().catch(error => console.error("Erro ao reproduzir música:", error)); 
     songTitle.textContent = songs[index].name.replace(".mp3", ""); 
-    playPauseBtn.innerHTML = '<img src="assets/icons/pause.png" alt="Pause">';
-    coverImage.src = songs[index].image || "assets/default-cover.jpg"
+    playPauseBtn.innerHTML = '<img src="src/assets/icons/pause.png" alt="Pause">';
+    coverImage.src = songs[index].image || "src/assets/default-cover.jpg"
 
     salvarPreferencias(); 
 }
@@ -197,10 +197,10 @@ audioPlayer.addEventListener("ended", () => {
 function togglePlayPause() {
     if (audioPlayer.paused) {
         audioPlayer.play().catch(error => console.error("Erro ao dar play:", error));
-        playPauseBtn.innerHTML = '<img src="assets/icons/pause.png" alt="Pause">';
+        playPauseBtn.innerHTML = '<img src="src/assets/icons/pause.png" alt="Pause">';
     } else {
         audioPlayer.pause();
-        playPauseBtn.innerHTML = '<img src="assets/icons/play.png" alt="Play">';
+        playPauseBtn.innerHTML = '<img src="src/assets/icons/play.png" alt="Play">';
     }
 }
 
