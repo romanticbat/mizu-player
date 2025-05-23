@@ -2,15 +2,13 @@
 
 Mizu Player é um aplicativo de música simples e funcional, desenvolvido como projeto pessoal para praticar habilidades de front-end. O player permite ao usuário escutar suas músicas favoritas, navegar pelas faixas e controlar o volume, tudo com uma interface limpa e responsiva.
 
-## 📸 Capturas de Tela
+<h2>📸 Capturas de Tela</h2>
 
 <p align="center">
-  <img src="src/assets/exemple1.png" alt="Tela principal" width="600"/> 
+  <img src="src/assets/exemple1.png" alt="Exemplo 1" width="300"/> 
+  <img src="src/assets/exemple2.png" alt="Exemplo 2" width="300"/> 
 </p>
 
-<p align="center">
-  <img src="src/assets/exemple2.png" alt="Menu de opções" width="600"/> 
-</p>
 
 ## ⚙️ Funcionalidades
 
