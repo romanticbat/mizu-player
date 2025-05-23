@@ -1,0 +1,960 @@
+@font-face {
+    font-family: 'font';
+    src: url('fonts/font.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'font', sans-serif;
+    text-align: center;
+    margin: 5px;
+    background: white;
+    color:  #b2ff90;
+    transition: background-color 0.3s ease;
+}
+
+#songTitle {
+    font-size: 20px;
+    color: #fc6e6a;
+    background: #b2ff90;
+    border: 2px solid #b7cb4b;
+    border-radius: 10px;
+    padding: 5px 15px;
+    display: block;
+    width: fit-content;
+    margin: 0 auto 10px auto;
+    font-weight: bold;
+}
+
+#cover {
+    width: 180px;
+    height: 180px;
+    background-color: #ffffff;
+    border: 2px solid #b2ff90;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 3px 3px 0 #b7cb4b;
+}
+
+.cover-animation:hover {
+    transform: scale(1.05);
+}
+
+#progressContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#progressBar {
+    width: 80%;
+    height: 8px;
+    background: #b2ff90;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid #b7cb4b;
+}
+
+#progressBall {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: -4px;
+    left: 0;
+    background: #fc6e6a;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#timeDisplay {
+    margin-top: 5px;
+    color: #fc6e6a;
+}
+
+#controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+button {
+    background: #fc6e6a;
+    border: 2px solid #b2ff90;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 0 #b7cb4b;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #b2ff90;
+}
+
+.control-btn {
+    width: 55px;
+    height: 50px;
+}
+
+.control-btn img {
+    width: 35px;
+    height: 35px;
+    filter: grayscale(100%);
+}
+
+.menu-btn {
+    width: 55px;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.menu-btn img {
+    width: 30px;
+    height: 30px;
+    filter: grayscale(100%);
+}
+
+#volumeControl {
+    width: 80%;
+    height: 8px;
+    display: none;
+    margin: 10px auto;
+    background: #b2ff90;
+    border-radius: 4px;
+    border: 2px solid #1a1a1a;
+}
+
+#playlist {
+    list-style: none;
+    padding: 10px;
+    background: #ffffff;
+    border: 2px solid #b2ff90;
+    border-radius: 10px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+#playlist li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #fc6e6a;
+    color: #fc6e6a;
+    font-weight: bold;
+}
+
+#playlist li:hover {
+    background: #b2ff90;
+}
+
+.hidden {
+    display: none;
+}
+
+#themeToggle {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Estilos do Blue Mode */
+.blue-mode {
+    background: #00274D;
+    color: #80BFFF;
+}
+
+.blue-mode #songTitle {
+    color: #ffffff;
+    background: #004C99;
+    border: 2px solid #002D5A;
+}
+
+.blue-mode #cover {
+    border: 2px solid #004C99;
+    box-shadow: 3px 3px 0 #002D5A;
+}
+
+.blue-mode #progressBar {
+    background: #007BFF;
+    border: 2px solid #003366;
+}
+
+.blue-mode #progressBall {
+    background: #00BFFF;
+}
+
+.blue-mode #timeDisplay {
+    color: #80BFFF;
+}
+
+.blue-mode button {
+    background: #00509e;
+    border: 2px solid #80BFFF;
+    box-shadow: 2px 2px 0 #003366;
+}
+
+.blue-mode button:hover {
+    background: #80BFFF;
+    color: #003366;
+}
+
+.blue-mode #playlist {
+    border: 2px solid #003366;
+}
+
+.blue-mode #playlist li {
+    border-bottom: 1px solid #007BFF;
+    color: #007BFF;
+}
+
+.blue-mode #playlist li:hover {
+    background: #00509e;
+    color: #ffffff;
+}
+
+/* Estilos do Dark Mode */
+.dark-mode {
+    background: #121212;
+    color: #D3D3D3;
+}
+
+.dark-mode #songTitle {
+    color: #FFFFFF;
+    background: #2C2C2C;
+    border: 2px solid #555555;
+}
+
+.dark-mode #cover {
+    border: 2px solid #666666;
+    box-shadow: 3px 3px 0 #444444;
+}
+
+.dark-mode #progressBar {
+    background: #555555;
+    border: 2px solid #333333;
+}
+
+.dark-mode #progressBall {
+    background: #AAAAAA;
+}
+
+.dark-mode #timeDisplay {
+    color: #CCCCCC;
+}
+
+.dark-mode button {
+    background: #3A3A3A;
+    border: 2px solid #666666;
+    color: #FFFFFF;
+    box-shadow: 2px 2px 0 #444444;
+}
+
+.dark-mode button:hover {
+    background: #666666;
+    color: #FFFFFF;
+}
+
+.dark-mode #playlist {
+    border: 2px solid #444444;
+}
+
+.dark-mode #playlist li {
+    border-bottom: 1px solid #888888;
+    color: #CCCCCC;
+}
+
+.dark-mode #playlist li:hover {
+    background: #444444;
+}
+
+/* Estilos do Lilac Mode*/
+.lilac-mode {
+    background: #E6C0E9;
+    color: #9D5C98;
+}
+
+.lilac-mode #songTitle {
+    color: #fff;
+    background: #D4A5D3;
+    border: 2px solid #B875B5;
+}
+
+.lilac-mode #cover {
+    border: 2px solid #B875B5;
+    box-shadow: 3px 3px 0 #D4A5D3;
+}
+
+.lilac-mode #progressBar {
+    background: #F4D4E0;
+    border: 2px solid #D4A5D3;
+}
+
+.lilac-mode #progressBall {
+    background: #F4A8C1;
+}
+
+.lilac-mode #timeDisplay {
+    color: #9D5C98;
+}
+
+.lilac-mode button {
+    background: #D4A5D3;
+    border: 2px solid #B875B5;
+    box-shadow: 2px 2px 0 #9D5C98;
+}
+
+.lilac-mode button:hover {
+    background: #F4A8C1;
+    color: #5D3A9B;
+}
+
+.lilac-mode #playlist {
+    border: 2px solid #B875B5;
+}
+
+.lilac-mode #playlist li {
+    border-bottom: 1px solid #D4A5D3;
+    color: #9D5C98;
+}
+
+.lilac-mode #playlist li:hover {
+    background: #D4A5D3;
+    color: #FFFFFF;
+}
+
+/* Estilos do Sunset Mode*/
+.sunset-mode {
+    background: #FFB07F;
+    color: #6D2E46;
+}
+
+.sunset-mode #songTitle {
+    color: #fff;
+    background: #FF7F50;
+    border: 2px solid #D1603D;
+}
+
+.sunset-mode #cover {
+    border: 2px solid #D1603D;
+    box-shadow: 3px 3px 0 #FF9E80;
+}
+
+.sunset-mode #progressBar {
+    background: #FFD28F;
+    border: 2px solid #FF9E80;
+}
+
+.sunset-mode #progressBall {
+    background: #FF7F50;
+}
+
+.sunset-mode #timeDisplay {
+    color: #6D2E46;
+}
+
+.sunset-mode button {
+    background: #D1603D;
+    border: 2px solid #FF7F50;
+    box-shadow: 2px 2px 0 #6D2E46;
+}
+
+.sunset-mode button:hover {
+    background: #FF9E80;
+    color: #6D2E46;
+}
+
+.sunset-mode #playlist {
+    border: 2px solid #D1603D;
+}
+
+.sunset-mode #playlist li {
+    border-bottom: 1px solid #FF7F50;
+    color: #6D2E46;
+}
+
+.sunset-mode #playlist li:hover {
+    background: #FF9E80;
+    color: #FFFFFF;
+}
+
+/* Estilos do Ocean Mode*/
+.ocean-mode {
+    background: #A7E6E3;
+    color: #105469;
+}
+
+.ocean-mode #songTitle {
+    color: #fff;
+    background: #42A5A1;
+    border: 2px solid #2B6777;
+}
+
+.ocean-mode #cover {
+    border: 2px solid #2B6777;
+    box-shadow: 3px 3px 0 #42A5A1;
+}
+
+.ocean-mode #progressBar {
+    background: #C3E8E5;
+    border: 2px solid #42A5A1;
+}
+
+.ocean-mode #progressBall {
+    background: #105469;
+}
+
+.ocean-mode #timeDisplay {
+    color: #105469;
+}
+
+.ocean-mode button {
+    background: #42A5A1;
+    border: 2px solid #2B6777;
+    box-shadow: 2px 2px 0 #105469;
+}
+
+.ocean-mode button:hover {
+    background: #C3E8E5;
+    color: #105469;
+}
+
+.ocean-mode #playlist {
+    border: 2px solid #2B6777;
+}
+
+.ocean-mode #playlist li {
+    border-bottom: 1px solid #42A5A1;
+    color: #105469;
+}
+
+.ocean-mode #playlist li:hover {
+    background: #42A5A1;
+    color: #FFFFFF;
+}
+
+/* Estilos do Fairy Mode*/
+.fairy-mode {
+    background: #A7C7A3;
+    color: #4E543D;
+}
+
+.fairy-mode #songTitle {
+    color: #fff;
+    background: #6D8F72;
+    border: 2px solid #4E543D;
+}
+
+.fairy-mode #cover {
+    border: 2px solid #4E543D;
+    box-shadow: 3px 3px 0 #6D8F72;
+}
+
+.fairy-mode #progressBar {
+    background: #B5A38D;
+    border: 2px solid #6D8F72;
+}
+
+.fairy-mode #progressBall {
+    background: #E2C2C6;
+}
+
+.fairy-mode #timeDisplay {
+    color: #4E543D;
+}
+
+.fairy-mode button {
+    background: #6D8F72;
+    border: 2px solid #4E543D;
+    box-shadow: 2px 2px 0 #A7C7A3;
+}
+
+.fairy-mode button:hover {
+    background: #E2C2C6;
+    color: #4E543D;
+}
+
+.fairy-mode #playlist {
+    border: 2px solid #4E543D;
+}
+
+.fairy-mode #playlist li {
+    border-bottom: 1px solid #6D8F72;
+    color: #4E543D;
+}
+
+.fairy-mode #playlist li:hover {
+    background: #B5A38D;
+    color: #FFFFFF;
+}
+
+/* Estilos do Y2K Mode*/
+.y2k-mode {
+    background: #FFF0F5;
+    color: #D81B60;
+}
+
+.y2k-mode #songTitle {
+    color: #FFFFFF;
+    background: #FF1493;
+    border: 2px solid #D81B60;
+}
+
+.y2k-mode #cover {
+    border: 2px solid #D81B60;
+    box-shadow: 3px 3px 0 #FF69B4;
+}
+
+.y2k-mode #progressBar {
+    background: #FFB6C1;
+    border: 2px solid #FF69B4;
+}
+
+.y2k-mode #progressBall {
+    background: white;
+}
+
+.y2k-mode #timeDisplay {
+    color: #faccdc;
+}
+
+.y2k-mode button {
+    background: #FF69B4;
+    border: 2px solid #D81B60;
+    box-shadow: 2px 2px 0 #FFC0CB;
+}
+
+.y2k-mode button:hover {
+    background: #FFC0CB;
+    color: #D81B60;
+}
+
+.y2k-mode #playlist {
+    border: 2px solid #D81B60;
+}
+
+.y2k-mode #playlist li {
+    border-bottom: 1px solid #FF1493;
+    color: #D81B60;
+}
+
+.y2k-mode #playlist li:hover {
+    background: #faccdc;
+    color: #FFFFFF;
+}
+
+/* Estilos do Blackpink Mode - rosa, preto e branco */
+.blackpink-mode {
+    background: white;
+    color: #000000;
+}
+
+.blackpink-mode #songTitle {
+    color: #FFFFFF;
+    background: #FF69B4;
+    border: 2px solid #000000;
+}
+
+.blackpink-mode #cover {
+    border: 2px solid #000000;
+    box-shadow: 3px 3px 0 #FF1493;
+}
+
+.blackpink-mode #progressBar {
+    background: black;
+    border: 2px solid #FF1493;
+}
+
+.blackpink-mode #progressBall {
+    background: #FFFFFF;
+}
+
+.blackpink-mode #timeDisplay {
+    color: #000000;
+}
+
+.blackpink-mode button {
+    background: #FF1493;
+    border: 2px solid #000000;
+    box-shadow: 2px 2px 0 #FF69B4;
+}
+
+.blackpink-mode button:hover {
+    background: #FF69B4;
+    color: #000000;
+}
+
+.blackpink-mode #playlist {
+    border: 2px solid #000000;
+}
+
+.blackpink-mode #playlist li {
+    border-bottom: 1px solid #FF1493;
+    color: #000000;
+}
+
+.blackpink-mode #playlist li:hover {
+    background: #FF69B4;
+    color: #FFFFFF;
+}
+
+/* Estilos do Brat Mode*/
+.brat-mode {
+    background: #7ED321;
+    color: #000000;
+}
+
+.brat-mode #songTitle {
+    color: #7ED321;
+    background: #000000;
+    border: 2px solid #7ED321;
+}
+
+.brat-mode #cover {
+    border: 2px solid #000000;
+    box-shadow: 3px 3px 0 #7ED321;
+}
+
+.brat-mode #progressBar {
+    background: #000000;
+    border: 2px solid #7ED321;
+}
+
+.brat-mode #progressBall {
+    background: #7ED321;
+}
+
+.brat-mode #timeDisplay {
+    color: #000000;
+}
+
+.brat-mode button {
+    background: #000000;
+    border: 2px solid #7ED321;
+    box-shadow: 2px 2px 0 #7ED321;
+    color: #7ED321;
+}
+
+.brat-mode button:hover {
+    background: #7ED321;
+    color: #000000;
+}
+
+.brat-mode #playlist {
+    border: 2px solid #000000;
+}
+
+.brat-mode #playlist li {
+    border-bottom: 1px solid #7ED321;
+    color: #000000;
+}
+
+.brat-mode #playlist li:hover {
+    background: #000000;
+    color: #7ED321;
+}
+
+/* Estilos do Ruby Mode*/
+.ruby-mode {
+    background: #000000;
+    color: #FF0000;
+}
+
+.ruby-mode #songTitle {
+    color: #FF0000;
+    background: #000000;
+    border: 2px solid #FF0000;
+}
+
+.ruby-mode #cover {
+    border: 2px solid #FF0000;
+    box-shadow: 3px 3px 0 #FF0000;
+}
+
+.ruby-mode #progressBar {
+    background: #000000;
+    border: 2px solid #FF0000;
+}
+
+.ruby-mode #progressBall {
+    background: #FF0000;
+}
+
+.ruby-mode #timeDisplay {
+    color: #FF0000;
+}
+
+.ruby-mode button {
+    background: #000000;
+    border: 2px solid #FF0000;
+    box-shadow: 2px 2px 0 #FF0000;
+    color: #FF0000;
+}
+
+.ruby-mode button:hover {
+    background: #FF0000;
+    color: #000000;
+}
+
+.ruby-mode #playlist {
+    border: 2px solid #FF0000;
+}
+
+.ruby-mode #playlist li {
+    border-bottom: 1px solid #FF0000;
+    color: #FF0000;
+}
+
+.ruby-mode #playlist li:hover {
+    background: #FF0000;
+    color: #000000;
+}
+
+/* Estilos do Candy Mode */
+.candy-mode {
+    background: #FFF0F5;
+    color: #7D7DD2;
+}
+
+.candy-mode #songTitle {
+    color: #FFB6C1;
+    background: #fdfea1;
+    border: 2px solid #87CEEB;
+}
+
+.candy-mode #cover {
+    border: 2px solid #fdfea1;
+    box-shadow: 3px 3px 0 #b7eeb7;
+}
+
+.candy-mode #progressBar {
+    background: #E6E6FA;
+    border: 2px solid #FFB6C1;
+}
+
+.candy-mode #progressBall {
+    background: #7D7DD2;
+}
+
+.candy-mode #timeDisplay {
+    color: #FFB6C1;
+}
+
+.candy-mode button {
+    background: #fdfea1;
+    border: 2px solid #87CEEB;
+    box-shadow: 2px 2px 0 #FFB6C1;
+    color: #7D7DD2;
+}
+
+.candy-mode button:hover {
+    background: #FFB6C1;
+    color: #fdfea1;
+}
+
+.candy-mode #playlist {
+    border: 2px solid #fdfea1;
+}
+
+.candy-mode #playlist li {
+    border-bottom: 1px solid #b7eeb7;
+    color: #7D7DD2;
+}
+
+.candy-mode #playlist li:hover {
+    background: #b7eeb7;
+    color: #FFF0F5;
+}
+
+.orquideas-mode {
+    background: #FDE7EC; /* Rosa pastel */
+    color: #A04568; /* Rosa escuro */
+}
+
+.orquideas-mode #songTitle {
+    color: #D66B98; /* Rosa vibrante */
+    background: #FFF5F7; /* Rosa bem claro */
+    border: 2px solid #C484A6; /* Rosa médio */
+}
+
+.orquideas-mode #cover {
+    border: 2px solid #FFF5F7; /* Rosa bem claro */
+    box-shadow: 3px 3px 0 #D66B98; /* Rosa vibrante */
+}
+
+.orquideas-mode #progressBar {
+    background: #FCD8E9; /* Rosa suave */
+    border: 2px solid #D66B98; /* Rosa vibrante */
+}
+
+.orquideas-mode #progressBall {
+    background: #A04568; /* Rosa escuro */
+}
+
+.orquideas-mode #timeDisplay {
+    color: #D66B98;
+}
+
+.orquideas-mode button {
+    background: #FFF5F7; 
+    border: 2px solid #C484A6; 
+    box-shadow: 2px 2px 0 #D66B98; 
+    color: #A04568; 
+}
+
+.orquideas-mode button:hover {
+    background: #D66B98; 
+    color: #FFF5F7; 
+}
+
+.orquideas-mode #playlist {
+    border: 2px solid #FFF5F7; 
+}
+
+.orquideas-mode #playlist li {
+    border-bottom: 1px solid #D66B98;
+    color: #A04568;
+}
+
+.orquideas-mode #playlist li:hover {
+    background: #A04568;
+    color: #FFF5F7;
+}
+
+/* Strawberry Mode */
+.strawberry-mode {
+    background: white;
+    color: #b2ff90;
+}
+
+.strawberry-mode #songTitle {
+    color: #fc6e6a;
+    background: #b2ff90;
+    border: 2px solid #b7cb4b;
+}
+
+.strawberry-mode #cover {
+    border: 2px solid #b2ff90;
+    box-shadow: 3px 3px 0 #b7cb4b;
+}
+
+.strawberry-mode #progressBar {
+    background: #b2ff90;
+    border: 2px solid #b7cb4b;
+}
+
+.strawberry-mode #progressBall {
+    background: #fc6e6a;
+}
+
+.strawberry-mode #timeDisplay {
+    color: #fc6e6a;
+}
+
+.strawberry-mode button {
+    background: #fc6e6a;
+    border: 2px solid #b2ff90;
+    box-shadow: 2px 2px 0 #b7cb4b;
+    color: white;
+}
+
+.strawberry-mode button:hover {
+    background: #b2ff90;
+    color: #fc6e6a;
+}
+
+.strawberry-mode #playlist {
+    border: 2px solid #b2ff90;
+}
+
+.strawberry-mode #playlist li {
+    border-bottom: 1px solid #fc6e6a;
+    color: #fc6e6a;
+}
+
+.strawberry-mode #playlist li:hover {
+    background: #b2ff90;
+    color: white;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 2px solid #b2ff90;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 10;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+    color: #fc6e6a;
+}
+
+.modal-content button {
+    margin: 5px 0;
+}
+
+#addSongModal.show {
+    display: block;
+}
+
+#optionsContainer {
+    width: 560px;
+    height: 50px;
+    position: absolute;
+    top: 10px; 
+    left: 90%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Para centralizar horizontalmente */
+    gap: 5px; /* Espaço entre os botões */
+}
+
+#optionsBtn {
+    cursor: pointer;
+    padding: 5px;
+}
+
+#optionsBtn img {
+    width: 30px;
+    height: 30px;
+}
+
+.dropdownMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px; 
+}
+
+#dropdownMenu button {
+    display: block;
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.dropdown-icon {
+    width: 25px;
+    height: 25px;
+}

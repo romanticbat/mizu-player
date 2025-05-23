@@ -1,0 +1,50 @@
+{
+    "name": "music-player",
+    "version": "1.1.1",
+    "description": "Um player de música leve e intuitivo.",
+    "author": "Makoto",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "build": "electron-builder"
+    },
+    "publish": [
+        {
+            "provider": "github",
+            "owner": "romantic.bat",
+            "repo": "mizu-player"
+        }
+    ],
+    "build": {
+        "appId": "com.mizup.player",
+        "productName": "Mizu Player",
+        "directories": {
+            "output": "dist"
+        },
+        "win": {
+            "target": "nsis",
+            "icon": "assets/icon.ico"
+        },
+        "mac": {
+            "target": "dmg",
+            "icon": "assets/icon.icns"
+        },
+        "linux": {
+            "target": "AppImage",
+            "icon": "assets/icon.png"
+        }
+    },
+    "devDependencies": {
+        "electron": "^35.0.2",
+        "electron-builder": "^25.1.8",
+        "electron-installer-windows": "^3.0.0",
+        "electron-reload": "^2.0.0-alpha.1"
+    },
+    "dependencies": {
+        "electron-packager": "^17.1.2",
+        "electron-updater": "^6.3.9",
+        "express": "^4.21.2",
+        "node-id3": "^0.2.8",
+        "sqlite3": "^5.1.7"
+    }
+}
