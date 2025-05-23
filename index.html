@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mizu Player</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
 <div id="songContainer">
@@ -16,14 +16,14 @@
     
     <div id="optionsContainer">
         <button id="optionsBtn" class="menu-btn">
-            <img src="icons/options.png" alt="Options">
+            <img src="assets/icons/options.png" alt="Options">
         </button>
         <div id="dropdownMenu" class="hidden">
             <button id = "removeSong">        
-                <img src="icons/remove.png" class="dropdown-icon">
+                <img src="assets/icons/remove.png" class="dropdown-icon">
             </button>
             <button id="changeCover">
-                <img src="icons/music_cover.png" class="dropdown-icon">
+                <img src="assets/icons/music_cover.png" class="dropdown-icon">
             </button>
         </div>      
     </div>    
@@ -40,30 +40,30 @@
 
 <div id="controls">
     <button id="prevSong" class="control-btn">
-        <img src="icons/prev.png" alt="Previous">
+        <img src="assets/icons/prev.png" alt="Previous">
     </button>
     <button id="playPauseBtn" class="control-btn">
-        <img src="icons/play.png" alt="Play">
+        <img src="assets/icons/play.png" alt="Play">
     </button>
     <button id="nextSong" class="control-btn">
-        <img src="icons/next.png" alt="Next">
+        <img src="assets/icons/next.png" alt="Next">
     </button>
 </div>
 
 <button id="menu" class="menu-btn">
-    <img src="icons/menu.png" alt="Menu">
+    <img src="assets/icons/menu.png" alt="Menu">
 </button>
 <button id="playlistBtn" class="menu-btn">
-    <img src="icons/playlist.png" alt="Playlist">
+    <img src="assets/icons/playlist.png" alt="Playlist">
 </button>
 <button id="volumeToggle" class="menu-btn">
-    <img src="icons/volume.png" alt="Volume">
+    <img src="assets/icons/volume.png" alt="Volume">
 </button>
 <button id="themeToggle" class="menu-btn">
-    <img src="icons/theme.png" alt="Theme">
+    <img src="assets/icons/theme.png" alt="Theme">
 </button>
 <button id="uploadBtn" class="menu-btn">
-    <img src="icons/upload.png" alt="Upload">
+    <img src="assets/icons/upload.png" alt="Upload">
 </button>
 
 <input type="range" id="volumeControl" min="0" max="1" step="0.01" style="display: none;">
@@ -78,7 +78,7 @@
     <div class="playlist-item">Minha Playlist 2</div>
 </div>
 
-<script src="renderer.js"></script>
+<script src="src/renderer.js"></script>
 <script>
     document.getElementById("playlistBtn").addEventListener("click", function() {
         document.getElementById("playlistMenu").classList.toggle("hidden");

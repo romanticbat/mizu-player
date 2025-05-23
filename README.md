@@ -2,25 +2,27 @@
 
 Mizu Player é um aplicativo de música simples e funcional, desenvolvido como projeto pessoal para praticar habilidades de front-end. O player permite ao usuário escutar suas músicas favoritas, navegar pelas faixas e controlar o volume, tudo com uma interface limpa e responsiva.
 
-## 🔧 Funcionalidades
+## 📸 Capturas de Tela
+
+*(Adicione aqui imagens da interface do app para demonstrar o funcionamento.)*
+
+## ⚙️ Funcionalidades
 
 - Reprodução de músicas locais
-- Controles de play/pause e seleção de faixa
-- Interface visual com capa do álbum
-- Design responsivo e minimalista
+- Suporte a capas personalizadas
+- Tema customizável
+- Renomear músicas diretamente pelo player
+- Interface minimalista e responsiva
 
-## 🛠️ Tecnologias utilizadas
+## 🚀 Tecnologias Utilizadas
 
-- HTML5
-- CSS3
-- JavaScript
+- [Electron](https://www.electronjs.org/)
+- HTML5, CSS3 e JavaScript Vanilla
+- Node.js
 
-## 📷 Capturas de tela
-
-(Adicione aqui prints do app funcionando, ex: `./screenshot1.png`)
-
-## 🚀 Como executar
+## 📦 Instalação
 
 1. Clone o repositório:
    ```bash
    git clone https://github.com/romanticbat/mizu-player.git
+   cd mizu-player

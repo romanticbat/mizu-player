@@ -27,8 +27,8 @@ app.whenReady().then(() => {
 
 // Gerenciamento de músicas
 ipcMain.handle('get-songs', () => {
-    const songsDir = path.join(__dirname, 'songs');
-    const coversDir = path.join(__dirname, 'covers');
+    const songsDir = path.join(__dirname, 'assets/songs');
+    const coversDir = path.join(__dirname, 'assets/covers');
     
     if (!fs.existsSync(songsDir)) fs.mkdirSync(songsDir);
     if (!fs.existsSync(coversDir)) fs.mkdirSync(coversDir);
@@ -54,7 +54,7 @@ ipcMain.handle('upload-song', async () => {
 
     const songPath = filePaths[0];
     const songName = path.basename(songPath);
-    const destPath = path.join(__dirname, 'songs', songName);
+    const destPath = path.join(__dirname, 'assets/songs', songName);
 
     fs.copyFileSync(songPath, destPath);
     return songName;
@@ -86,7 +86,7 @@ ipcMain.handle("change-current-cover", async (_, songName) => {
 
     const coverPath = filePaths[0];
     const ext = path.extname(coverPath);
-    const coversDir = path.join(__dirname, "covers");
+    const coversDir = path.join(__dirname, "assets/covers");
     const newCoverPath = path.join(coversDir, `${path.parse(songName).name}${ext}`);
 
     fs.copyFileSync(coverPath, newCoverPath); // Substitui a capa antiga
@@ -115,8 +115,8 @@ ipcMain.on("rename-song", (event, { currentPath, newName }) => {
     const ext = path.extname(currentPath);
     const newFilePath = path.join(dir, newName + ext);
 
-    const coverPath = path.join("covers", path.basename(currentPath, ext) + ".jpg");
-    const newCoverPath = path.join("covers", newName + ".jpg");
+    const coverPath = path.join("assets/covers", path.basename(currentPath, ext) + ".jpg");
+    const newCoverPath = path.join("assets/covers", newName + ".jpg");
 
     try {
         fs.renameSync(currentPath, newFilePath);
